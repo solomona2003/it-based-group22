@@ -1,4 +1,4 @@
-package at.ac.tuwien.imw.pdca;
+package at.ac.tuwien.imw.pdca.fw;
 
 /**
  * 
@@ -6,6 +6,6 @@ package at.ac.tuwien.imw.pdca;
  *
  * @param <T>
  */
-public interface AdaptiveActRules {
+public interface CorrectiveActRules {
 	public void applyActRules();
 }

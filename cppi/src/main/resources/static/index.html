@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CPPI</title>
+    <script src="axios.js"></script>
+    <!-- <script src="app.js"></script> -->
+    <script>
+      function sendRequest() {
+        var result = document.getElementById("result");
+        var string = document.getElementById("string").value;
+        var number = document.getElementById("number").value;
+        console.log(string, number);
+        var path = "data/" + string + "/" + number;
+        axios.get(path)
+        .then(function (response) {
+          var paragraph = document.createElement("p");
+          paragraph.innerHTML = response.data;
+          result.appendChild(paragraph);
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="string" value="string" />
+    <input type="number" id="number" value="number" />
+    <button id="send" onClick="sendRequest()">Send</button>
+    <div id="result"></div>
+  </body>
+</html>
