@@ -1,0 +1,19 @@
+==UPLOAD/DOWNLOAD SOURCE CODE TO/FROM REMOTE REPO==
+git status / what changed since last commit
+
+To commit stuff to remote repository:
+1. git add --all / adds all changed stuff you want to commit
+2. git commit -m "<your_message>" / commit message
+3. git push / uploads data to remote repository
+
+
+==BUILDING AND DEPLOYING SOFTWARE==
+mvn clean install / builds a new version (e.g. creates jar) and puts it into your .m2 maven repository...you DON'T need this when you use the following:
+mvn spring-boot:run / starts your web application including embedded web server
+
+==GENERAL COMMANDS==
+cd .. / move up a directory
+cd <relative_path> / move down to <relative_path> directory
+ls / show all files
+
+[CTRL + C ] / stop process (web app, command, etc.)
