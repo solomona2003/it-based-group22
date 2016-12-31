@@ -1,24 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>at.ac.tuwien.itbased</groupId>
   <artifactId>cppi</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
 
   <name>cppi</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
   </properties>
   
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.3.8.RELEASE</version>
-</parent>
+  </parent>
 
   <dependencies>
 	<dependency>
@@ -31,4 +32,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <modules>
+ 	<module>stock-price</module>
+ 	<module>cppi-frontend</module>
+ 	<module>investment-system</module>
+ 	<module>cppi-data-service</module>
+ 	<module>cppi-strategy</module>
+  </modules>
 </project>
