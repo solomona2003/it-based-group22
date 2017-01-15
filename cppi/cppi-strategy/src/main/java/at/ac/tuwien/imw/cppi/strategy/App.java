@@ -1,4 +1,4 @@
-package org.cppi.strategy;
+package at.ac.tuwien.imw.cppi.strategy;
 
 /**
  * Hello world!

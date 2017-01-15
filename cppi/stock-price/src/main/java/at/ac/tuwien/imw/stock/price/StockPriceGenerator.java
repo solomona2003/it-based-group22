@@ -1,4 +1,4 @@
-package org.stock.price;
+package at.ac.tuwien.imw.stock.price;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
