@@ -3,7 +3,17 @@ package org.stock.price;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * 
+ * the generator has an array of prices, 25 of them, 
+ * then it takes the user period specification as input 
+ * and with the {@link ScheduledExecutorService} 
+ * it makes stock objects by passing in the price from the array
+ * 
+ * at the stock, the stock makes the stock object with the price passed from the 
+ * StockPriceGenerator and stamps the time at creation
+ *
+ */
 public class StockPriceGenerator {
 	
 	private int userUpdatePeriod; 
@@ -27,7 +37,7 @@ public class StockPriceGenerator {
 			public void run() {	
 				int latestPrice = PRICES[t];
 				Stock stock = new Stock(latestPrice);
-				System.out.println(stock.toString()); // just for the momemnt
+				System.out.println(stock.toString()); // just for the moment
 				t++;
 				if(t == PRICES.length) {
 					scheduler.shutdown();

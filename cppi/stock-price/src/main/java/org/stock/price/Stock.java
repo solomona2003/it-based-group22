@@ -3,6 +3,12 @@ package org.stock.price;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+/**
+ * 
+ * at the stock, the stock makes the stock object with the price passed from the 
+ * StockPriceGenerator and makes stamps the time at creation
+ *
+ */
 
 public class Stock {
 	private int price;
