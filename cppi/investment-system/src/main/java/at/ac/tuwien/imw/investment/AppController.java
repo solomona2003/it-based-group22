@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import at.ac.tuwien.imw.investment.interf.InvestmentResponse;
 
 @RestController
-@RequestMapping("")
-public class AppController {
-	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public InvestmentResponse investing(
-			@RequestParam double X_f,
-			@RequestParam double X_r) {
-		return DummyInvestor.invest(X_r, X_f);
+@RequestMapping( "" )
+public class AppController
+{
+
+	@RequestMapping( method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE )
+	public InvestmentResponse investing( @RequestParam final double Xf, @RequestParam final double Xr )
+	{
+		return DummyInvestor.invest( Xr, Xf );
 	}
 }

@@ -1,29 +1,45 @@
 package at.ac.tuwien.imw.investment.interf;
 
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
-public class InvestmentResponse {
-	public enum Flag {		
-	
+public class InvestmentResponse
+{
+	public enum Flag
+	{
 		SUCCESSFUL,
-		UNSUCCESSFUL 			
+		UNSUCCESSFUL
 	}
-	
+
 	private Flag value;
-	private Instant timeStamp;
-	
-	public InvestmentResponse(Flag value, Instant timeStamp) {
+
+	private String timeStamp;
+
+	public InvestmentResponse()
+	{
+		// for JSON deserialization
+	}
+
+	public InvestmentResponse( final Flag value, final Instant currentTime )
+	{
 		this.value = value;
-		this.timeStamp = timeStamp;
+		this.timeStamp = ZonedDateTime.ofInstant( currentTime, ZoneId.systemDefault() ).toString();
 	}
-	
-	public Flag getValue() {
-		return value;
+
+	public Flag getValue()
+	{
+		return this.value;
 	}
-	
-	public Instant getTimeStamp() {
+
+	public String getTimeStamp()
+	{
 		return this.timeStamp;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "InvestmentResponse [value=" + this.value + ", timeStamp=" + this.timeStamp + "]";
+	}
 }
-
-

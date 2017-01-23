@@ -1,33 +1,97 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>CPPI</title>
-    <script src="axios.js"></script>
-    <!-- <script src="app.js"></script> -->
-    <script>
-      function sendRequest() {
-        var result = document.getElementById("result");
-        var string = document.getElementById("string").value;
-        var number = document.getElementById("number").value;
-        console.log(string, number);
-        var path = "data/" + string + "/" + number;
-        axios.get(path)
-        .then(function (response) {
-          var paragraph = document.createElement("p");
-          paragraph.innerHTML = response.data;
-          result.appendChild(paragraph);
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      }
-    </script>
-  </head>
-  <body>
-    <input type="text" id="string" value="string" />
-    <input type="number" id="number" value="number" />
-    <button id="send" onClick="sendRequest()">Send</button>
-    <div id="result"></div>
-  </body>
+    <head>
+        <link rel="stylesheet" href="lib/normalize.css" />
+        <link rel="stylesheet" href="lib/skeleton.css" />
+        <link rel="stylesheet" href="layout.css" />
+
+		<script src="axios.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <h2>Enter Configuration</h2>
+        <table>
+            <tr>
+                <td>Floor value F_T:</td>
+                <td><input type="text" id="floorValue" /></td>
+            </tr>
+            <tr>
+                <td>Multiplier m:</td>
+                <td><input type="text" id="multiplier" /></td>
+            </tr>
+                <td>Max. risky fraction b:</td>
+                <td><input type="text" id="maxRiskyFraction" /></td>
+            <tr>
+                <td>Initial investment value W_0:</td>
+                <td><input type="text" id="initInvestmentValue" /></td>
+            </tr>
+            <tr>
+                <td>Time horizon T of portfolio investments:</td>
+                <td><input type="text" id="timeHorizon" /></td>
+            </tr>
+        </table>
+        <div>
+            <button id="calculate" onclick="sendUserConfiguration()">Start Simulation</button>
+            <button onclick="requestLatestUpdate()">Refresh</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>time period</th>
+                    <th>T_t,T</th>
+                    <th>floor value</th>
+                    <th>cushion</th>
+                    <th>risky exposure</th>
+                    <th>riskfree exposure</th>
+                    <th>stock price</th>
+                    <th>total shareholder return</th>
+                    <th>investor's return</th>
+                </tr>
+                <tr>
+                    <th>t</th>
+                    <th>T_t,T</th>
+                    <th>F_t</th>
+                    <th>C_t</th>
+                    <th>X_rt</th>
+                    <th>X_ft</th>
+                    <th>S_t</th>
+                    <th>TSR_t</th>
+                    <th>W_t</th>
+                </tr>
+            </thead>
+            <tbody id="latestResult"></tbody>
+        </table>
+        <div>
+            <h2>View History</h2>
+            <button id="calculate" onclick="requestHistoryUpdate()">Refresh History</button>
+            <div id="history"></div>
+        </div>
+
+        <table style="display:none" id="tableTemplate">
+            <thead>
+                <tr>
+                    <th>time period</th>
+                    <th>T_t,T</th>
+                    <th>floor value</th>
+                    <th>cushion</th>
+                    <th>risky exposure</th>
+                    <th>riskfree exposure</th>
+                    <th>stock price</th>
+                    <th>total shareholder return</th>
+                    <th>investor's return</th>
+                </tr>
+                <tr>
+                    <th>t</th>
+                    <th>T_t,T</th>
+                    <th>F_t</th>
+                    <th>C_t</th>
+                    <th>X_rt</th>
+                    <th>X_ft</th>
+                    <th>S_t</th>
+                    <th>TSR_t</th>
+                    <th>W_t</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </body>
 </html>
