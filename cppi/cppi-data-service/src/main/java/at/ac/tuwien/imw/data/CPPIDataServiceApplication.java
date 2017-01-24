@@ -26,7 +26,7 @@ public class CPPIDataServiceApplication implements RabbitListenerConfigurer
 {
 	public static final String PDCA_EXCHANGE = "pdca";
 
-	public static final String URL = "http://localhost:8082";
+	public static final String URL = "http://192.168.99.100:8082";
 
 	public static void main( final String[] args )
 	{

@@ -33,6 +33,8 @@ public class StockPriceApplication implements RabbitListenerConfigurer
 
 	public static final String STOCK_PRICE_SETTINGS_QUEUE = "stockPriceSettingsQueue";
 
+	public static final String RABBITMQ_HOSTNAME = "196.168.99.100";
+	
 	public static void main( final String[] args )
 	{
 		SpringApplication.run( StockPriceApplication.class, args );
@@ -56,6 +58,11 @@ public class StockPriceApplication implements RabbitListenerConfigurer
 		return BindingBuilder.bind( stockPriceUpdateQueue() ).to( pdcaExchange() ).with( STOCK_PRICE_UPDATE_QUEUE );
 	}
 
+//	@Bean
+//	public ConnectionFactory connectionFactory() {
+//		return new CachingConnectionFactory(RABBITMQ_HOSTNAME);
+//	}
+	
 	@Bean
 	public RabbitTemplate rabbitTemplate( final ConnectionFactory connectionFactory )
 	{

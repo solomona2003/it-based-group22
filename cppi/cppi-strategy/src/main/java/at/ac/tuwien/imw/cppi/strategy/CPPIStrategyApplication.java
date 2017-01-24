@@ -16,13 +16,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 import at.ac.tuwien.imw.data.CPPIStrategyMessageSender;
 
 @SpringBootApplication
 @EnableRabbit
-@EnableScheduling
 public class CPPIStrategyApplication implements RabbitListenerConfigurer
 {
 	public static final String EXCHANGE_NAME = "pdca";

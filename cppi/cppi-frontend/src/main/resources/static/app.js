@@ -2,7 +2,7 @@ var currentT = 0;
 var refreshIntervalId;
 
 var latestConfigurationId = null;
-var dataServiceAddress = "http://localhost:8082/frontend/";
+var dataServiceAddress = "http://192.168.99.100:8082/frontend/";
 
 function sendUserConfiguration() {
     var F_T = document.getElementById("floorValue").value,
